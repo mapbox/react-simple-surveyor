@@ -4,15 +4,38 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const survey = require('../src/survey');
 
-function WidthDisplay(props) {
-  return (
-    <div style={{ padding: 20, background: '#eee' }}>
-      {props.width}px wide
-    </div>
-  );
+class Tester extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { actualWidth: 0 };
+    this.actualWidth = this.actualWidth.bind(this);
+  }
+
+  componentDidMount() {
+    this.actualWidth();
+  }
+
+  componentWillReceiveProps() {
+    this.actualWidth();
+  }
+
+  actualWidth() {
+    if (!this.refs.el) return;
+    this.setState({ actualWidth: this.refs.el.clientWidth });
+  }
+
+  render() {
+    const color = this.props.width === this.state.actualWidth ? 'green' : 'red';
+    return (
+      <div ref="el" style={{ padding: 20, color: '#fff', background: color }}>
+        <div>Surveyor says: {this.props.width}</div>
+        <div>Actual width: {this.state.actualWidth}</div>
+      </div>
+    );
+  }
 }
 
-const SurveyedWidthDisplay = survey(WidthDisplay);
+const SurveyedTester = survey(Tester);
 
 class App extends React.Component {
   constructor() {
@@ -37,21 +60,21 @@ class App extends React.Component {
           Full width:
         </div>
         <div style={{ marginBottom: 20 }}>
-          <SurveyedWidthDisplay />
+          <SurveyedTester />
         </div>
 
         <div style={{ marginBottom: 10 }}>
           Max-width 600px
         </div>
         <div style={{ marginBottom: 20, maxWidth: 600 }}>
-          <SurveyedWidthDisplay />
+          <SurveyedTester />
         </div>
 
         <div style={{ marginBottom: 10 }}>
           Width 33%, min-width 100px
         </div>
         <div style={{ marginBottom: 20, width: '33%', minWidth: 100 }}>
-          <SurveyedWidthDisplay />
+          <SurveyedTester />
         </div>
 
         <div style={{ marginBottom: 10 }}>
@@ -66,14 +89,12 @@ class App extends React.Component {
             maxWidth: '100%'
           }}
         >
-          <SurveyedWidthDisplay />
+          <SurveyedTester />
         </div>
 
         <div>
           WrappedComponent works as expected:{' '}
-          {SurveyedWidthDisplay.WrappedComponent === WidthDisplay
-            ? 'true'
-            : 'false'}
+          {SurveyedTester.WrappedComponent === Tester ? 'true' : 'false'}
         </div>
       </div>
     );
