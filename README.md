@@ -9,27 +9,28 @@ Simple higher-order React component for measuring a component's available width.
 ```jsx
 const survey = require('react-simple-surveyor');
 
-const SurveyedComponent = survey(function OriginalComponent(props) {
-  return (
-    <div>
-      This components has an available width of {props.width}px.
-    </div>
-  );
-});
+function Original(props) {
+  // The wrapped component receives a `width` prop,
+  // telling it how much width is available to it.
+  return <div>Available width: {props.width}px.</div>;
+}
 
-// Automatically resurveys the width when the window is resized.
-// Or you can resurvey manually when there are layout changes without a resize.
+const Surveyed = survey(Original);
+
+// When the window is resized, the width is resurveyed.
+// You can also trigger a resurvey manually, on all surveyed components,
+// when there are layout changes without a resize.
 survey.resurvey();
+
+// All props provided to `Surveyed` will be passed along
+// to `Original`.
+<Surveyed className="green" aria-label="green box" title="Green!" />;
+
+// The wrapped component (`Original`) is available
+// on the `WrappedComponent` static property of the returned
+// React component class.
+Surveyed.WrappedComponent === Original;
 ```
-
-The wrapped component (`OriginalComponent`) receives a `width` prop, telling it how much width is available to it.
-
-When the window is resized, the width is resurveyed.
-You can also trigger a resurvey programmatically on all surveyed components by calling `survey.resurvey()`.
-
-All props provided to `SurveyedComponent` will be passed along to `OriginalComponent`.
-
-The wrapped component (`OriginalComponent`) is available on the `WrappedComponent` static property of the returned React component class (`SurveyedComponent.WrappedComponent`).
 
 ## Details and caveats
 

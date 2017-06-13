@@ -4,13 +4,15 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const survey = require('../src/survey');
 
-const WidthDisplay = survey(function WidthDisplay(props) {
+function WidthDisplay(props) {
   return (
     <div style={{ padding: 20, background: '#eee' }}>
       {props.width}px wide
     </div>
   );
-});
+}
+
+const SurveyedWidthDisplay = survey(WidthDisplay);
 
 class App extends React.Component {
   constructor() {
@@ -35,21 +37,21 @@ class App extends React.Component {
           Full width:
         </div>
         <div style={{ marginBottom: 20 }}>
-          <WidthDisplay />
+          <SurveyedWidthDisplay />
         </div>
 
         <div style={{ marginBottom: 10 }}>
           Max-width 600px
         </div>
         <div style={{ marginBottom: 20, maxWidth: 600 }}>
-          <WidthDisplay />
+          <SurveyedWidthDisplay />
         </div>
 
         <div style={{ marginBottom: 10 }}>
           Width 33%, min-width 100px
         </div>
         <div style={{ marginBottom: 20, width: '33%', minWidth: 100 }}>
-          <WidthDisplay />
+          <SurveyedWidthDisplay />
         </div>
 
         <div style={{ marginBottom: 10 }}>
@@ -64,7 +66,14 @@ class App extends React.Component {
             maxWidth: '100%'
           }}
         >
-          <WidthDisplay />
+          <SurveyedWidthDisplay />
+        </div>
+
+        <div>
+          WrappedComponent works as expected:{' '}
+          {SurveyedWidthDisplay.WrappedComponent === WidthDisplay
+            ? 'true'
+            : 'false'}
         </div>
       </div>
     );
