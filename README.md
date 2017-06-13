@@ -38,6 +38,9 @@ Surveyed.WrappedComponent === Original;
   Wraps your component in a `<div>`.
 - Upon mounting, initially renders an empty `<div>`.
   This makes no perceptible difference for the user, but might affect some other complicated stuff you have going on.
+- There are lots of other modules that do similar things: react-measure, react-dimensions, react-measure-it, react-with-dimension, etc. 
+  The closest to this module's simplicity is react-with-available-width.
+  If this module doesn't suit your needs, you might try one of the others.
 
 ## Development
 
