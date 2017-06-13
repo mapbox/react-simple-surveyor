@@ -2,6 +2,8 @@
 
 Simple higher-order React component for measuring a component's available width.
 
+![Simple surveyors](https://nationalmap.gov/ustopo/images/old_survey_team.jpg)
+
 ## Usage
 
 ```jsx
