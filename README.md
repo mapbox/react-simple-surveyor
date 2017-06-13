@@ -38,9 +38,18 @@ Surveyed.WrappedComponent === Original;
   Wraps your component in a `<div>`.
 - Upon mounting, initially renders an empty `<div>`.
   This makes no perceptible difference for the user, but might affect some other complicated stuff you have going on.
-- There are lots of other modules that do similar things: react-measure, react-dimensions, react-measure-it, react-with-dimension, etc. 
-  The closest to this module's simplicity is react-with-available-width.
-  If this module doesn't suit your needs, you might try one of the others.
+
+## Why use this instead of the many other dimension-measuring higher-order components?
+
+There are lots of other modules that do similar things: react-measure, react-dimensions, react-measure-it, react-with-dimension, react-container-dimensions, react-element-queries, react-element-query, etc.
+
+This module's goal is to provide the smallest and simplest way to measure the available width.
+Pretty much all of the other modules I've found are more larger and more ambitious.
+The fundamental problem is not super difficult, so I think that a variety of modules with different APIs are kind of inevitable.
+
+The closest to this module's simplicity is react-with-available-width.
+
+If this module doesn't suit your needs, you should try one of the others.
 
 ## Development
 
