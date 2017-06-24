@@ -1,6 +1,6 @@
 {
   "name": "@mapbox/react-simple-surveyor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple higher-order React component for measuring a component's available width",
   "main": "dist/survey.js",
   "scripts": {
