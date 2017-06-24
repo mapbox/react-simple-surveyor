@@ -9,12 +9,12 @@ const resizeListeners = [];
 const invokeResizeListeners = () => {
   resizeListeners.forEach(listener => listener());
 };
-const onResize = debounce(invokeResizeListeners, 300);
 
 let initialized = false;
 function initializeListener() {
   if (initialized || typeof window == 'undefined') return;
   initialized = true;
+  const onResize = debounce(invokeResizeListeners, 300);
   window.addEventListener('resize', onResize, false);
 }
 

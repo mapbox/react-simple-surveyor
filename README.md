@@ -1,4 +1,4 @@
-# react-simple-surveyor
+# @mapbox/react-simple-surveyor
 
 Simple higher-order React component for measuring a component's available width.
 
@@ -7,7 +7,7 @@ Simple higher-order React component for measuring a component's available width.
 ## Usage
 
 ```jsx
-const survey = require('react-simple-surveyor');
+const survey = require('@mapbox/react-simple-surveyor');
 
 function Original(props) {
   // The wrapped component receives a `width` prop,
