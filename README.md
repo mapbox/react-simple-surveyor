@@ -2,7 +2,7 @@
 
 Simple higher-order React component for simple measurements of a component's available width.
 
-![simple surveyors](https://nationalmap.gov/ustopo/images/old_survey_team.jpg)
+![simple surveyor](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Land_surveyor.jpg/640px-Land_surveyor.jpg)
 
 ## Usage
 
