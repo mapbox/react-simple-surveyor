@@ -29,17 +29,17 @@
   },
   "homepage": "https://github.com/mapbox/react-simple-surveyor#readme",
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babelify": "^7.3.0",
-    "budo": "^10.0.3",
-    "eslint": "^4.0.0",
-    "husky": "^0.14.1",
-    "lint-staged": "^4.0.0",
-    "prettier": "^1.4.4",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "@babel/cli": "^7",
+    "@babel/preset-env": "^7",
+    "@babel/preset-react": "^7",
+    "babelify": "^10",
+    "budo": "^11",
+    "eslint": "^8",
+    "husky": "^8",
+    "lint-staged": "^15",
+    "prettier": "^3",
+    "react": "^16",
+    "react-dom": "^16"
   },
   "dependencies": {
     "debounce": "^1.0.2"
@@ -56,8 +56,12 @@
   },
   "babel": {
     "presets": [
-      "es2015",
-      "react"
+      [
+        "@babel/preset-env"
+      ],
+      [
+        "@babel/preset-react"
+      ]
     ]
   }
 }
