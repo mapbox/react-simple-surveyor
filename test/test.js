@@ -41,38 +41,31 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      randomWidth: 500
+      randomWidth: 500,
     };
     this.setRandomWidth = this.setRandomWidth.bind(this);
   }
 
   setRandomWidth() {
     this.setState({
-      randomWidth: Math.random() * (window.innerWidth - 50) + 50
+      randomWidth: Math.random() * (window.innerWidth - 50) + 50,
     });
   }
 
   render() {
     return (
       <div style={{ margin: '20px 10px' }}>
-
-        <div style={{ marginBottom: 10 }}>
-          Full width:
-        </div>
+        <div style={{ marginBottom: 10 }}>Full width:</div>
         <div style={{ marginBottom: 20 }}>
           <SurveyedTester />
         </div>
 
-        <div style={{ marginBottom: 10 }}>
-          Max-width 600px
-        </div>
+        <div style={{ marginBottom: 10 }}>Max-width 600px</div>
         <div style={{ marginBottom: 20, maxWidth: 600 }}>
           <SurveyedTester />
         </div>
 
-        <div style={{ marginBottom: 10 }}>
-          Width 33%, min-width 100px
-        </div>
+        <div style={{ marginBottom: 10 }}>Width 33%, min-width 100px</div>
         <div style={{ marginBottom: 20, width: '33%', minWidth: 100 }}>
           <SurveyedTester />
         </div>
@@ -86,7 +79,7 @@ class App extends React.Component {
           style={{
             marginBottom: 20,
             width: this.state.randomWidth,
-            maxWidth: '100%'
+            maxWidth: '100%',
           }}
         >
           <SurveyedTester />

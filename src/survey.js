@@ -7,7 +7,7 @@ const debounce = require('debounce');
 // This way we only attach one actual event listener.
 const resizeListeners = [];
 const invokeResizeListeners = () => {
-  resizeListeners.forEach(listener => listener());
+  resizeListeners.forEach((listener) => listener());
 };
 
 let initialized = false;
@@ -56,11 +56,7 @@ function survey(WrappedComponent) {
         innards = <WrappedComponent {...this.props} width={this.state.width} />;
       }
 
-      return (
-        <div ref={this.setContainerElement}>
-          {innards}
-        </div>
-      );
+      return <div ref={this.setContainerElement}>{innards}</div>;
     }
   }
 
